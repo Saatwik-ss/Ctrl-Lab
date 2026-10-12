@@ -1,0 +1,25 @@
+# Baseline B: Parameter-Matched Causal GRU Decoder
+experiment:
+  name: "baseline_causal_gru"
+  seed: 42
+  device: "cuda"
+
+audio:
+  sample_rate: 22050
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 80
+
+model:
+  type: "gru"
+  mel_bins: 80
+  model_dim: 256
+  num_layers: 6
+  latent_dim: 64
+  spk_dim: 192
+
+training:
+  batch_size: 16
+  lr: 3.0e-4
+  weight_decay: 0.01

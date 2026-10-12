@@ -1,0 +1,42 @@
+# SSM Speech Codec Configuration
+# Project: IISc SPIRE Lab Research Application
+
+experiment:
+  name: "ssm_speech_codec_main"
+  seed: 42
+  device: "cuda"
+
+audio:
+  sample_rate: 22050
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mels: 80
+  f_min: 0.0
+  f_max: 8000.0
+
+model:
+  type: "ssm"
+  mel_bins: 80
+  model_dim: 256
+  d_state: 64
+  num_layers: 6
+  codebook_size: 512
+  latent_dim: 64
+  spk_dim: 192
+  num_speakers: 100
+
+loss:
+  commitment_weight: 0.25
+  leakage_weight: 0.1
+  consistency_weight: 0.5
+  grl_alpha: 1.0
+
+training:
+  batch_size: 16
+  lr: 3.0e-4
+  weight_decay: 0.01
+  grad_clip: 1.0
+  max_steps: 10000
+  log_every: 50
+  eval_every: 500
